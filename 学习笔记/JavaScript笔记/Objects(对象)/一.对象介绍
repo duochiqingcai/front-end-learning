@@ -1,0 +1,58 @@
+对象用来存储键值对和更复杂的实体。
+
+1.两种语法创建空对象：
+let user = new Object(); //构造函数语法
+let user = {}; //字面量 语法，常用方法
+
+let user = {
+    name:'Li',
+    age:18, //属性键通常是一个字符串，值可以为任何类型
+    'be married':false //如果是多个字符串做属性名必须加引号
+};
+
+2.读取对象属性方法:
+a.点操作
+属性名不能有空格和其他限制，不能为多字符串的属性名
+user.name; user.age;
+b.方括号
+对任何字符串均适用
+user["name"];user["age"];user["be married"];
+
+3.计算属性
+在对象字面量中使用方括号，叫做计算属性。可以存放变量
+let name = 'Li';
+let sayHi = {
+    ['Good Morning,'+name]:'Haha'
+};
+
+4.for...in循环
+对象可以使用for...in进行迭代遍历对象
+
+删除属性：delete obj.prop
+检查属性是否存在 in："key" in obj
+遍历对象：for(let key in obj) 循环
+
+5.对象的引用复制
+对象和其他原生类型相比有一个重要区别，对象是按引用存储复制的。
+原生类型：字符串、数字、布尔型是被整个赋值的。
+
+因为变量存储的不是对象本身，而是对象的“内存地址”，是对象的引用。（可以参考Java的基础数据类型和对象进行理解）
+
+6.比较引用（借用Java，引用地址就是对象本身）
+==和严格===对于对象没区别。
+前面说过const声明为只读，不可变，如果声明的是一个对象就可以修改。
+const user = {
+    name:'Li',
+    age:18
+};
+user.age = 20;
+alert(user.age); // 20
+
+因为const仅仅修饰user，user中存储的是对象的引用地址，引用地址没变，对象变了，所以不会出错。
+但是如果将user赋值给其它，会报错。
+user = {
+    name:'Lin'
+};//错误 Uncaught TypeError: Assignment to constant variable.
+
+
+

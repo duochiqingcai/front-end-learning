@@ -22,6 +22,12 @@ let fuc = (arg1,arg2,...argN) => expression
 let func = function(arg1, arg2, ...argN) {
   return expression;
 }
+// 或带 {...} 的多行语法，需要此处返回：
+let sum = (a, b) => {
+  // ...
+  return a + b;
+}
+
 
 箭头函数非常适合单行调用，以下是其两个特点。
 Ⅰ.没有大括号：(...args) => expression —— 右侧是一个表达式：该函数对其进行运行并返回结果。
