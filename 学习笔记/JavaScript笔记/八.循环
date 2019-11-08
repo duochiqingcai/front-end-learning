@@ -1,0 +1,35 @@
+1.while循环
+while (condition) {
+  // 代码
+  // 所谓的“循环体”
+}
+
+2.do...while循环
+do {
+  // 循环体
+} while (condition);
+先执行一次循环体，然后检查条件，true重复执行。
+
+3.for循环
+for (begin; condition; step) {
+  // ……循环体……
+}
+
+ break跳出循环，终止；continue停止当前一轮循环，强制启动新一轮循环。
+
+禁止 break/continue 在'?'的右边
+
+4.switch...case
+switch(x) {
+  case 'value1':  // if (x === 'value1')
+    ...
+    [break]
+
+  case 'value2':  // if (x === 'value2')
+    ...
+    [break]
+
+  default:
+    ...
+    [break]
+}

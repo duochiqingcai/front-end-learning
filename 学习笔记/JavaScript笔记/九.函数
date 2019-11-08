@@ -1,0 +1,31 @@
+1.创建函数的四种方法
+a.函数声明
+function sayHi() {
+  alert( "Hello" );
+}
+
+b.函数表达式（注意末尾有一个分号，当作变量看待）
+let sayHi = function() {
+  alert( "Hello" );
+};
+函数声明和函数表达式区别：
+函数表达式在执行到达时创建，只有那时起才可用；而函数声明的调用优先于声明（类似提升）；另外函数声明只在它所在的代码块中可见。
+sayHi("John"); // Hello, John
+
+function sayHi(name) {
+  alert( `Hello, ${name}` );
+}
+
+c.箭头函数
+let fuc = (arg1,arg2,...argN) => expression
+类似
+let func = function(arg1, arg2, ...argN) {
+  return expression;
+}
+
+箭头函数非常适合单行调用，以下是其两个特点。
+Ⅰ.没有大括号：(...args) => expression —— 右侧是一个表达式：该函数对其进行运行并返回结果。
+Ⅱ.有大括号：(...args) => { body } —— 括号允许我们在函数中写入多个语句，但是我们需要一个显式的 return 来返回一些东西。
+
+d.new Function()
+let func = new Function ([arg1[, arg2[, ...argN]],] functionBody)

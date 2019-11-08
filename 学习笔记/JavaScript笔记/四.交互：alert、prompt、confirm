@@ -1,0 +1,13 @@
+浏览器的三种常用交互方式：
+1.alert
+alert(message);//弹窗显示
+
+2.prompt 函数接收两个参数
+prompt(title,[default]);//显示带有文本的窗口，包含input框和确认按钮。title为显示文本，default为可选参数，指定input框初始值。
+let age = prompt('How old are you?',18);
+
+3.confirm 
+confirm(message); //显示带有message及确认和取消按钮的窗口，确认返回true，取消返回false。
+let isBoy = confirm('Are you a boy?');
+alert(isBoy); //true
+

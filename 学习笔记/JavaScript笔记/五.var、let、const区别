@@ -1,0 +1,37 @@
+var
+
+let和const在词法环境中的行为完全一样，只不过let声明的变量不需要初始值，而const的声明需要初始值。
+
+1.var没有块级作用域
+用var声明的变量，只有全局作用域和函数作用域，没有块级作用域（局部变量的意思），它们在块内是可见的。
+if(true){
+    var str='string';//var声明
+}
+alert(str);//string,if结束后变量str仍存在
+
+如果使用let str='string';则alert无法访问str，报错undefined，str只在if块作用域内可见。
+var可以穿透if、for、或其它块级代码，因为早期js中，没有词法环境。
+
+2.var变量提升
+var声明在函数开始时处理，及var声明的变量所在的位置，不影响变量的使用；但是它们在被赋值之前都是undefined。
+function sayHi(){
+    str='Hello';
+    alert(str);
+    var str;
+} 
+sayHi();//Hello
+
+声明会被提升，但是赋值不会。
+function sayHi(){
+    alert(str);
+    var str='Hello';
+} 
+sayHi();//undefined
+var str = "Hello" 这行包含两个步骤：
+a.使用 var 声明变量；b.使用 = 给变量赋值。
+声明在函数开始执行时提升，但赋值依旧在原来的位置，需要执行alert后完成赋值。
+
+总结，var声明变量的两点区别
+a.变量没有块作用域，最小函数作用域可见
+b.变量提升，变量声明会在函数开头处理
+
