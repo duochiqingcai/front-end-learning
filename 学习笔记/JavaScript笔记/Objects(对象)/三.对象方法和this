@@ -1,0 +1,49 @@
+对象中的属性值可以是函数，作为该对象的方法。
+
+//通过函数表达式
+let user = {
+    name : 'Li',
+    age : 18,
+    sayHi : function() {
+        alert('Hi');
+    } //或者直接sayHi(){alert('Hi')}更加简单
+};
+
+1.方法中的关键字this
+很多时候，对象方法需要访问对象中的属性来完成工作，可以使用this关键字。
+this的值是在运行期确认求值的。
+
+在Js中，this的值指在点之前的这个对象，即调用该方法的对象。
+let user = {
+    name : 'Li',
+    age : 18,
+    sayHi() {
+        alert(this.name);
+    }
+};
+user.sayHi();// Li
+在user.sayHi()执行过程中，this的值就是user。
+
+如果不使用this，使用外部变量名引用，过程中如果将user赋值给另一个变量，把另外的值给user，就会访问错误对象可能会发生错误，。
+例如：
+let user = {
+    name : 'Li',
+    age : 18,
+    sayHi() {
+        alert(user.name);
+    }
+};
+let customer = user; //将user对象赋值给customer，此时user==customer指向同一个对象
+user = null; // 将null值重新赋值给user
+
+customer.sayHi();// 在sayHi()中使用了旧的变量名user，报错user不存在name属性。
+
+2.this不受限制
+在Js中，this可以用于任何函数。
+
+3.箭头函数没有自己的this
+如果在函数中引用this，this值取决于外部的正常函数。
+
+
+
+

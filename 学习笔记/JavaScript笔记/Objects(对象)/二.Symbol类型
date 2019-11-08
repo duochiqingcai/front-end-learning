@@ -1,0 +1,17 @@
+根据规范，对象的属性键只能是String类型和Symbol类型。
+
+Symbol值表示唯一的标识符。通俗的讲，每一次Symbol()都会创建一个唯一的对象，即使参数相同。
+语法：Symbol([description]);//参数可选,无法使用new Symbol()进行创建
+
+let id = Symbol(); //id是symbol的一个实例化对象
+let id1 = Symbol("18");//id描述为"18"的Symbol
+let id2 = Symbol("18");//id描述为"18"的Symbol
+alert(id1 == id2);// false
+id1 和 id2不相同。
+
+如果我们要在 object 字面量中使用 Symbol，则需要方括号。
+Symbol属性不参与for...in循环。
+
+Symbol两个使用场景：
+1."隐藏"对象属性，Symbol作为属性键时，无法使用for...in遍历出来
+2.

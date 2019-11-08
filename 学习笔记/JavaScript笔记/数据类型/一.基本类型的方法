@@ -1,0 +1,89 @@
+Js中6中基本类型（原生类型）：string、number、boolean、null、undefined、symbol
+
+1.number数字类型
+Js中的所有数字都是以64位格式存储，也称为双精度;其中 52 个被使用存储这些数字，其中 11 个存储小数点的位置（它们对于整数为零），1 位用于符号。。
+
+a.十六进制
+0x格式
+alert(0xff);//255
+b.二进制 Binary 
+alert(0b00000101);//5 长度位8
+c.八进制 Octonary
+alert(0o0101);//65 长度位4
+
+d.toString(base)方法
+num.toString(base)方法 // 返回给定base进制的num字符串，默认位十进制的数字。
+let num = 255;
+
+alert( num.toString()); // 255
+alert( num.toString(16) );  // ff
+alert( num.toString(2) );   // 11111111
+
+e.Math方法
+Math.floor : 向下舍入 //Math.floor(3.1) 为3
+Math.ceil : 向上舍入 // Math.ceil(3.1) 为4
+Math.round : 向最近的整数舍入 //Math.round(3.2) 为3，Math.round(3.5) 为4
+Math.random() : 返回0到1之间随机数，不包括1
+Math.max(a,b,c...)/min(a,b,c...) : 返回最大值/最小值
+Math.pow(n,power) : 返回n的power次幂n*n*n....乘power次
+
+f.toFixed(n)方法
+将点数的数字四舍五入到n个数字并返回结果字符串。
+let num = 12.35;
+alert(num.toFixed(1));//12.4 Math.round最近舍入
+----------------------------------------------------------------------我是一条分割线-----------------------------------------------------------------------------
+
+2.字符串
+在 JavaScript 中，文本数据被作为字符串存储，字符没有单独的类型。字符串的内部格式总是 UTF-16，它不会绑定到页面编码中。
+
+a.引号
+字符串可以包含在单引号、双引号或反引号中；单引号和双引号一样，反引号允许通过${...}将表达式嵌入字符串中。
+
+b.字符串长度
+string.length是string的一个属性，不是函数，不需要加()。
+
+c.获取指定位置字符
+string[postion]或者string.charArt[postion]方法，字符串的第一个字符位置为0。
+
+let str = 'Hello';
+alert(str[0]); // H 如果位置不存在，[]返回undefined
+alert(str.charAt(0)); // H 如果位置不存在，charAt()返回空字符串" "
+
+d.字符串遍历
+//使用for...of遍历字符串
+for(let char of "Hello"){
+    alert(char); // H,e,l,l,o
+}
+
+e.字符串不可变
+在 Js 中，字符串不可更改。改变字符是不可能的。
+通常是创建新字符串再赋值给原变量。
+
+f.改变大小写
+toLowerCase() 和 toUpperCase() 
+
+g.查找字符串
+string.indexOf(substr,postion) //从position位置开始，在string中查找substr，如果没有找到，则返回 -1，否则返回匹配成功的起始位置。
+
+let str = 'You should be a better way to start a day than waking up every moring';
+alert(str.indexOf('than'),0);//42
+
+h.检查是否存在字符串
+string.includes(substr, position) //true or false
+
+i.获取字符串
+三种获取字符串的方法：slice（最常用）、substring和substr 
+string.slice(start [, end]) //返回start到end（不包括end）的字符串部分,start、end可以为负数;负数指从字符串结尾计算。
+let str = 'You should be a better way to start a day than waking up every moring';
+alert(str.slice(30,-7));// 包括空格"start a day than waking up every"
+
+string.substring(start, [,end]) //返回start到end（不包括end）的字符串部分,不支持负数(如果有按0计算)。
+let str = 'You should be a better way to start a day than waking up every moring';
+alert(str.substring(0,12));// 共12个字符，包括空格"You should b"
+
+string.substr(start [, length]) // 返回从start开始的length长度的字符串部分，。
+let str = 'You should be a better way to start a day than waking up every moring';
+alert(str.substr(4,15));//15个字符 包括空格"should be a bet"
+
+j.删除字符串前后的空格
+string.trim()
