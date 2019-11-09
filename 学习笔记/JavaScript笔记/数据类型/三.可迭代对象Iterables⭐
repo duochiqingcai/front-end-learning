@@ -1,0 +1,4 @@
+参考：https://zh.javascript.info/iterable
+
+Iterable （可迭代对象）是数组的泛化。可以应用for...of。
+使用Symbol.iterator

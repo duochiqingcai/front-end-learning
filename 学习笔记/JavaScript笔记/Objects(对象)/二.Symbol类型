@@ -13,5 +13,8 @@ id1 和 id2不相同。
 Symbol属性不参与for...in循环。
 
 Symbol两个使用场景：
-1."隐藏"对象属性，Symbol作为属性键时，无法使用for...in遍历出来
-2.
+1."隐藏"对象属性，Symbol作为属性键时，无法使用for...in遍历出来。
+2.通过使用Symbol.*方法改变对象的行为，比如使用Symbol.iterator构建迭代对象，Symbol.toPrimitive设置对象原始值的转换。
+
+Symbol 不是 100% 隐藏的。有一个内置方法 Object.getOwnPropertySymbols(obj) 允许我们获取所有的 Symbol。
+还有一个名为 Reflect.ownKeys(obj) 返回所有键，包括 Symbol。所以它们不是真正的隐藏。

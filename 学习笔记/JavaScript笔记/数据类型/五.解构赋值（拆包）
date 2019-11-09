@@ -1,0 +1,38 @@
+https://zh.javascript.info/destructuring-assignment#qian-tao-jie-gou
+
+JavaScript 中最常用的两种数据结构是 Object（对象）和 Array（数组）。
+解构赋值是一种特殊的语法，它让我们可以将数组或对象进行“拆包”，存放到一系列的变量中，因为有时候使用变量更加方便。
+
+1.数组解构
+它通过将结构中的各元素复制到变量中来达到“解构”的目的。但数组本身是没有被修改的。
+// 有一个存放了名字和姓氏的数组
+let arr = ["Ilya", "Kantor"]
+
+// 解构赋值
+let [firstName, surname] = arr;
+
+alert(firstName); // Ilya
+alert(surname);  // Kantor
+
+2.对象解构
+let {var1, var2} = {var1:…, var2…}
+
+let options = {
+  title: "Menu",
+  width: 100,
+  height: 200
+};
+
+// { 原属性：目标变量 }
+let {width: w, height: h, title} = options;
+
+// width -> w
+// height -> h
+// title -> title
+
+alert(title);  // Menu
+alert(w);      // 100
+alert(h);      // 200
+
+3.嵌套解构
+

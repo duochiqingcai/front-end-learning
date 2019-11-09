@@ -1,0 +1,37 @@
+1.Map是一个键值对的集合，类似对象，区别是，Map允许所有数据类型作为键（键是唯一的，不能相同），对象的属性键为string和Symbol。
+Map是可迭代对象。
+new Map([iterable])
+
+主要方法：
+new Map([iterable]) – 创建 map。
+map.set(key, value) – 根据键（key）存储值（value）。
+map.get(key) – 根据键返回值，如果 map 中该键不存在，返回 undefined。
+map.has(key) – 如果键存在，返回 true，否则返回 false。
+map.delete(key) – 移除该键的值。
+map.clear() – 清空 map
+map.size – 返回当前元素个数。
+
+遍历Map三种方法：
+map.keys() – 返回键的迭代器，
+map.values() – 返回值的迭代器，
+map.entries() – 返回 [key, value] 迭代器入口，for..of 循环会默认使用它。
+
+2.Set 是一个值的集合，这个集合中所有的值仅出现一次，不能重复，唯一性。
+
+主要方法包括：
+new Set(iterable) – 创建 set，利用数组来创建是可选的（任何可迭代对象都可以）。
+set.add(value) – 添加值，返回 set 自身。
+set.delete(value) – 删除值，如果该 value 在调用方法的时候存在则返回 true ，否则返回 false。
+set.has(value) – 如果 set 中存在该值则返回 true ，否则返回 false。
+set.clear() – 清空 set。
+set.size – 元素个数。
+
+Set迭代，使用 for..of 或者 forEach 来循环查看 set：
+let set = new Set(["oranges", "apples", "bananas"]);
+
+for (let value of set) alert(value);
+
+// 和 forEach 相同：
+set.forEach((value, valueAgain, set) => {
+  alert(value);
+});
