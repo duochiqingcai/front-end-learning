@@ -1,0 +1,11 @@
+1.安装vue-cli
+npm install -g vue-cli
+
+2.创建vue项目
+vue init webpack my-project
+
+3.安装依赖包
+npm install
+
+4.运行项目
+npm run serve

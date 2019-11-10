@@ -1,0 +1,27 @@
+https://zh.javascript.info/settimeout-setinterval
+有时我们并不想立即执行一个函数，而是等待特定一段时间之后再执行，这种做法也叫“计划调用”。
+
+目前有两种方式可以实现：
+
+setTimeout 将函数的执行推迟到一段时间之后再执行。
+setInterval 让函数间隔一定时间周期性执行。
+这两个方法并不存在于 JavaScript 的规范中。但是大多数运行环境都有内置的调度器，而且也提供了这两个方法的实现。
+目前来讲，所有浏览器，包括 Node.js 都支持这两个方法。
+
+1.setTimeout
+setTimeout(func|code, delay[, arg1, arg2...])
+
+func|code ：想要执行的函数或代码字符串。 一般传入的都是函数，介于某些历史原因，代码字符串也支持，不建议使用。
+delay ：执行前的延时，以毫秒为单位（1000 毫秒 = 1 秒）；
+arg1，arg2… （可选）：要传入被执行函数（或代码字符串）的参数列表
+
+function sayHi(phrase, who) {
+  alert( phrase + ', ' + who );
+}
+
+setTimeout(sayHi, 1000, "Hello", "John"); // Hello, John
+
+2.setInterval
+setInterval(func|code, delay[, arg1, arg2...])
+
+3.递归版 setTimeout

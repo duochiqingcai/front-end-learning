@@ -1,0 +1,36 @@
+https://zh.javascript.info/closure
+闭包的官方解释：
+函数与对其状态即词法环境（lexical environment）的引用共同构成闭包（closure）。也就是说，
+闭包可以让你从内部函数访问外部函数作用域。在JavaScript，所有函数在每次创建时生成闭包。
+闭包是由函数以及创建该函数的词法环境（通俗讲是所有局部变量对象、外部词法环竟）组合而成。
+
+
+在 JavaScript 中，每个运行的函数、代码块或整个程序，都有一个称为 词法环境（Lexical Environment） 的关联对象。
+词法环境对象由两部分组成：
+
+环境记录（Environment Record）—— 一个把所有局部变量作为其属性（包括一些额外信息，比如 this 值）的对象。
+外部词法环境（outer lexical environment） 的引用 —— 通常是嵌套当前代码（当前花括号之外）之外代码的词法环境。
+
+⭐个人理解：函数的每一次调用都有独立的词法环境,都有属于自己的环境记录（局部变量）。
+let makeCounter = function(){
+    let count = 0;
+
+  return function() {
+    return count++;
+  };
+};
+
+let counter = makeCounter();
+let counter2 = makeCounter();
+//但是如果我们使用 new Function 创建函数，函数的 [[Environment]] 并不指向当前的词法环境，而是指向全局环境。
+
+console.log(counter()); // 0
+console.log(counter()); // 1
+
+console.log(counter2()); // 0
+console.log(counter2()); // 1
+
+console.log(counter == counter2); //false
+
+⭐个人想法：闭包不是为了实现某些东西/功能而创建的，相反的，它是因为Js而天然存在的特性（不知道对不对哈）。⭐
+闭包用途：1.可以实现从外部读取函数内部局部变量。2.让变量保存在内存中不被垃圾清理。

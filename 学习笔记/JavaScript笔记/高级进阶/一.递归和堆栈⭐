@@ -1,0 +1,11 @@
+https://zh.javascript.info/recursion
+
+1.递归（了解的不深）
+当一个函数调用自身时，就称为递归。
+递归三大要素（知乎看到的，https://www.zhihu.com/search?type=content&q=%E9%80%92%E5%BD%92）
+a.明确你这个函数想要干什么
+b.寻找递归结束条件
+c.找出函数的等价关系式
+
+
+2.执行堆栈⭐（不太懂）

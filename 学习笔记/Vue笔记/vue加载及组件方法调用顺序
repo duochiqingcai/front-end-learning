@@ -1,0 +1,42 @@
+1.文件加载顺序
+
+index.html --> main.js --> app.vue -->index.js --> components/组件；
+
+webpack入口页面为main.js
+
+main.js :
+
+main.js是我们的入口文件，主要作用是初始化vue实例并使用需要的插件。
+
+这里new Vue代表新建vue对象
+
+el官方解释：为实例提供挂载元素。值可以是 CSS 选择符，或实际 HTML 元素，或返回 HTML 元素的函数。
+
+这里就通过index.html中的<div id="app"><div>中的id=“app”和这里的“#app”进行挂载。
+
+components:代表组件。这里的App，实际是App:App的省略写法，template里使用的 <App/>标签来自组件App。
+
+template：代表模板。官方解释：模板将会替换挂载的元素。挂载元素的内容都将被忽略。
+
+
+重点说明index.js，在main.js中new Vue对象中写入router，实际上是router:router，作用是main.js引入了router对象，根据路由的配置方法，需要将router对象加载到根main.js中。
+
+
+App.vue :
+
+App.vue是我们的主组件，所有的页面都在App.vue下进行切换。我们可以将router标示为App.vue的子组件。
+
+
+helloworld.vue中的内容能在app.vue中显示, 首先在index.js配置了路由路径,在main.js中加载了路由,在app.vue指明了路由显示位置<router-view>标签.
+
+2.组件内方法执行顺序
+
+Props --> Methods --> Data -->Computed --> Watch
+
+﻿https://github.com/vuejs/vue/blob/dev/src/core/instance/state.js#L45-L53
+
+
+3.组件的声明周期
+
+https://cn.vuejs.org/images/lifecycle.png
+
